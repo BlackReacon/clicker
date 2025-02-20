@@ -1,16 +1,16 @@
 /* main */
 body {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
 }
 
 /* hero */
 #hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 240px;
-    gap: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 240px;
+  gap: 50px;
 }
