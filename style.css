@@ -16,6 +16,13 @@ body {
   width: 100%;
 }
 
+#image {
+  animation-name: shakehead;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
 #progressbar {
   display: flex;
   background-color: rgb(88, 88, 88);
@@ -29,4 +36,23 @@ body {
   background-color: rgb(19, 216, 91);
   width: 0%;
   border-radius: 5px;
+}
+
+/* animation */
+@keyframes shakehead {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
