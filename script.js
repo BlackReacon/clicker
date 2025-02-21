@@ -2,11 +2,13 @@
 let head = document.querySelector("#image");
 let span_clicks = document.querySelector("#clicks");
 let span_level = document.querySelector("#level");
+let divProgress = document.querySelector("#progress");
 
 /* var */
 let clicks = 0;
 let level = 0;
 let eyeIndex = 0;
+let progress = 0;
 
 /* array */
 eyeOpen = [
@@ -41,11 +43,9 @@ head.addEventListener("click", callFunction);
 /* function */
 function callFunction() {
   countUp();
-
+  levelProgress();
   blink();
-
   levelUp();
-
   generateHtml();
 }
 
@@ -54,11 +54,16 @@ function countUp() {
   clicks = clicks + 1;
 }
 
+/* function - calculate level progress */
+function levelProgress() {
+  progress = progress + 1;
+}
+
 /* function - blink - change img on click */
 function blink() {
   setTimeout(() => {
     head.src = eyeOpen[eyeIndex];
-  }, 200);
+  }, 25);
 
   head.src = eyeClose[eyeIndex];
 }
@@ -68,6 +73,7 @@ function levelUp() {
   if (clicks % 10 == 0 && eyeIndex < 9) {
     level = level + 1;
     eyeIndex = eyeIndex + 1;
+    progress = 0;
   } else if (clicks % 10 == 0 && eyeIndex == 9) {
     eyeIndex = 0;
   }
@@ -77,4 +83,5 @@ function levelUp() {
 function generateHtml() {
   span_clicks.innerHTML = `${clicks}`;
   span_level.innerHTML = `${level}`;
+  divProgress.style.width = `${progress * 10}%`;
 }

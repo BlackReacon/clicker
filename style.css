@@ -27,6 +27,6 @@ body {
 
 #progress {
   background-color: rgb(19, 216, 91);
-  width: 100%;
+  width: 0%;
   border-radius: 5px;
 }
