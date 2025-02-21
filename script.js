@@ -40,7 +40,7 @@ eyeClose = [
 /* eventlistener */
 head.addEventListener("click", callFunction);
 
-/* function */
+/* function - call function for head eventlistener*/
 function callFunction() {
   countUp();
   levelProgress();
