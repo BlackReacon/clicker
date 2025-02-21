@@ -6,6 +6,34 @@ let span_level = document.querySelector("#level");
 /* var */
 let clicks = 0;
 let level = 0;
+let eyeIndex = 0;
+
+/* array */
+eyeOpen = [
+  "/src/img/Cat/Cat_1.png",
+  "/src/img/Rabbit/Rabbit_1.png",
+  "/src/img/Sheep/Sheep_1.png",
+  "/src/img/Pig/Pig_1.png",
+  "/src/img/Rainbow/Rainbow_1.png",
+  "/src/img/Lizard/Lizard_1.png",
+  "/src/img/Octopus/Octopus_1.png",
+  "/src/img/Owl/Owl_1.png",
+  "/src/img/Unicorn/Unicorn_1.png",
+  "/src/img/Dragon/Head_1.png",
+];
+
+eyeClose = [
+  "/src/img/Cat/Cat_2.png",
+  "/src/img/Rabbit/Rabbit_2.png",
+  "/src/img/Sheep/Sheep_2.png",
+  "/src/img/Pig/Pig_2.png",
+  "/src/img/Rainbow/Rainbow_2.png",
+  "/src/img/Lizard/Lizard_2.png",
+  "/src/img/Octopus/Octopus_2.png",
+  "/src/img/Owl/Owl_2.png",
+  "/src/img/Unicorn/Unicorn_2.png",
+  "/src/img/Dragon/Head_2.png",
+];
 
 /* eventlistener */
 head.addEventListener("click", callFunction);
@@ -16,7 +44,7 @@ function callFunction() {
 
   blink();
 
-  levelup();
+  levelUp();
 
   generateHtml();
 }
@@ -29,16 +57,19 @@ function countUp() {
 /* function - blink - change img on click */
 function blink() {
   setTimeout(() => {
-    head.src = "/src/img/Cat/Cat_1.png";
+    head.src = eyeOpen[eyeIndex];
   }, 200);
 
-  head.src = "/src/img/Cat/Cat_2.png";
+  head.src = eyeClose[eyeIndex];
 }
 
 /* function - level up */
-function levelup() {
-  if (clicks % 10 == 0) {
+function levelUp() {
+  if (clicks % 10 == 0 && eyeIndex < 9) {
     level = level + 1;
+    eyeIndex = eyeIndex + 1;
+  } else if (clicks % 10 == 0 && eyeIndex == 9) {
+    eyeIndex = 0;
   }
 }
 
