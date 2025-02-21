@@ -59,13 +59,15 @@ function levelProgress() {
   progress = progress + 1;
 }
 
-/* function - blink - change img on click */
+/* function - blink - change img on click and grow short */
 function blink() {
   setTimeout(() => {
     head.src = eyeOpen[eyeIndex];
+    head.classList.remove("changeSize");
   }, 25);
 
   head.src = eyeClose[eyeIndex];
+  head.classList.add("changeSize");
 }
 
 /* function - level up */
