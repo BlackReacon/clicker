@@ -57,12 +57,13 @@ function countUp() {
   clicks = clicks + 1;
 }
 
-/* function - calculate level progress */
+/* function - calculate level progress and change img */
 function levelProgress() {
   clicksUntilCurrentLevel = 5 * level * (level + 1);
   clickInCurrentLevel = level + 1;
   if (progress >= 99) {
     progress = 0;
+    eyeIndex = Math.floor(Math.random() * eyeOpen.length);
   } else {
     progress = ((clicks - clicksUntilCurrentLevel) / clickInCurrentLevel) * 10;
   }
@@ -79,10 +80,11 @@ function blink() {
   divGrowUp.classList.add("changeSize");
 }
 
-/* function - level up and change img */
+/* function - level up */
 function levelUp() {
   while (5 * level * (level + 1) <= clicks) {
     level += 1;
+    
   }
   return (level = level - 1);
 }
