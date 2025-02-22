@@ -3,6 +3,7 @@ let head = document.querySelector("#image");
 let span_clicks = document.querySelector("#clicks");
 let span_level = document.querySelector("#level");
 let divProgress = document.querySelector("#progress");
+let divGrowUp = document.querySelector("#growup");
 
 /* var */
 let clicks = 0;
@@ -63,11 +64,11 @@ function levelProgress() {
 function blink() {
   setTimeout(() => {
     head.src = eyeOpen[eyeIndex];
-    head.classList.remove("changeSize");
-  }, 25);
+    divGrowUp.classList.remove("changeSize");
+  }, 50);
 
   head.src = eyeClose[eyeIndex];
-  head.classList.add("changeSize");
+  divGrowUp.classList.add("changeSize");
 }
 
 /* function - level up */

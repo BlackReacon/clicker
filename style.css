@@ -25,7 +25,7 @@ body {
 
 .changeSize {
   animation-name: growup;
-  animation-duration: 3s;
+  animation-duration: 100ms;
   animation-iteration-count: 1;
   animation-timing-function: linear;
 }
@@ -69,6 +69,6 @@ body {
     transform: scale(1);
   }
   100% {
-    transform: scale(1.5);
+    transform: scale(1.05);
   }
 }
