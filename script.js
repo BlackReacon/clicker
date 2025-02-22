@@ -71,15 +71,15 @@ function blink() {
   divGrowUp.classList.add("changeSize");
 }
 
-/* function - level up */
+/* function - level up and change img */
 function levelUp() {
-  if (clicks % 10 == 0 && eyeIndex < 9) {
+  if (clicks % 10 == 0 && eyeIndex <= 9) {
     level = level + 1;
-    eyeIndex = eyeIndex + 1;
+    eyeIndex = Math.floor(Math.random() * eyeOpen.length);
     progress = 0;
-  } else if (clicks % 10 == 0 && eyeIndex == 9) {
+  } /* else if (clicks % 10 == 0 && eyeIndex > 9) {
     eyeIndex = 0;
-  }
+  } */
 }
 
 /* function - generate HTML with amount of clicks */
