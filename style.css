@@ -16,6 +16,10 @@ body {
   width: 100%;
 }
 
+#growup {
+  height: 500px;
+}
+
 #image {
   animation-name: shakehead;
   animation-duration: 5s;
