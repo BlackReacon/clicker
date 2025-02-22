@@ -73,7 +73,7 @@ function blink() {
 
 /* function - level up and change img */
 function levelUp() {
-  if (clicks % 10 == 0 && eyeIndex <= 9) {
+  if (clicks % 10 == 0 && eyeIndex < eyeOpen.length ) {
     level = level + 1;
     eyeIndex = Math.floor(Math.random() * eyeOpen.length);
     progress = 0;
