@@ -10,6 +10,8 @@ let clicks = 0;
 let level = 0;
 let eyeIndex = 0;
 let progress = 0;
+let clicksUntilCurrentLevel = 0;
+let clickInCurrentLevel = 0;
 
 /* array */
 eyeOpen = [
@@ -57,7 +59,13 @@ function countUp() {
 
 /* function - calculate level progress */
 function levelProgress() {
-  progress = progress + 1;
+  clicksUntilCurrentLevel = 5 * level * (level + 1);
+  clickInCurrentLevel = level + 1;
+  if (progress >= 99) {
+    progress = 0;
+  } else {
+    progress = ((clicks - clicksUntilCurrentLevel) / clickInCurrentLevel) * 10;
+  }
 }
 
 /* function - blink - change img on click and grow short */
@@ -73,16 +81,15 @@ function blink() {
 
 /* function - level up and change img */
 function levelUp() {
-  if (clicks % 10 == 0 && eyeIndex < eyeOpen.length ) {
-    level = level + 1;
-    eyeIndex = Math.floor(Math.random() * eyeOpen.length);
-    progress = 0;
+  while (5 * level * (level + 1) <= clicks) {
+    level += 1;
   }
+  return (level = level - 1);
 }
 
 /* function - generate HTML with amount of clicks */
 function generateHtml() {
   span_clicks.innerHTML = `${clicks}`;
   span_level.innerHTML = `${level}`;
-  divProgress.style.width = `${progress * 10}%`;
+  divProgress.style.width = `${progress}%`;
 }
