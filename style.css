@@ -16,15 +16,12 @@ body {
   width: 100%;
 }
 
-#growup {
-  height: 500px;
-}
-
 #image {
   animation-name: shakehead;
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  height: 500px;
 }
 
 .changeSize {
