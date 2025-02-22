@@ -77,9 +77,7 @@ function levelUp() {
     level = level + 1;
     eyeIndex = Math.floor(Math.random() * eyeOpen.length);
     progress = 0;
-  } /* else if (clicks % 10 == 0 && eyeIndex > 9) {
-    eyeIndex = 0;
-  } */
+  }
 }
 
 /* function - generate HTML with amount of clicks */
