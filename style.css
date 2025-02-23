@@ -5,6 +5,10 @@ body {
   width: 100vw;
 }
 
+p {
+  margin: 0;
+}
+
 /* hero */
 #hero {
   display: flex;
