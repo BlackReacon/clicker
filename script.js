@@ -4,6 +4,7 @@ let span_clicks = document.querySelector("#clicks");
 let span_level = document.querySelector("#level");
 let divProgress = document.querySelector("#progress");
 let divGrowUp = document.querySelector("#growup");
+let nextlevelprogress = document.querySelector("#nextlevel")
 
 /* var */
 let clicks = 0;
@@ -12,6 +13,8 @@ let eyeIndex = 0;
 let progress = 0;
 let clicksUntilCurrentLevel = 0;
 let clickInCurrentLevel = 0;
+let clicksUntilNextLevel = 10;
+let currentLevelClicks = 0;
 
 /* array */
 eyeOpen = [
@@ -55,27 +58,30 @@ function callFunction() {
 /* function - count clicks */
 function countUp() {
   clicks = clicks + 1;
+  
 }
 
 /* function - calculate level progress and change img */
 function levelProgress() {
   clicksUntilCurrentLevel = 5 * level * (level + 1);
   clickInCurrentLevel = level + 1;
-  if (progress >= 99) {
+  currentLevelClicks = currentLevelClicks + 1;
+  if (progress >= 100) {
     progress = 0;
+    currentLevelClicks = 1;
     eyeIndex = Math.floor(Math.random() * eyeOpen.length);
   } else {
     progress = ((clicks - clicksUntilCurrentLevel) / clickInCurrentLevel) * 10;
   }
 }
 
-/* function - blink - change img on click and grow short */
+/* function - blink - change img on click and grow short, calculate click until next level */
 function blink() {
   setTimeout(() => {
     head.src = eyeOpen[eyeIndex];
     divGrowUp.classList.remove("changeSize");
+    clicksUntilNextLevel = 10 * (level + 1);
   }, 50);
-
   head.src = eyeClose[eyeIndex];
   divGrowUp.classList.add("changeSize");
 }
@@ -84,14 +90,14 @@ function blink() {
 function levelUp() {
   while (5 * level * (level + 1) <= clicks) {
     level += 1;
-    
   }
   return (level = level - 1);
 }
 
-/* function - generate HTML with amount of clicks */
+/* function - generate HTML with amount of clicks, progress */
 function generateHtml() {
   span_clicks.innerHTML = `${clicks}`;
   span_level.innerHTML = `${level}`;
   divProgress.style.width = `${progress}%`;
+  nextlevelprogress.innerHTML = `<p>${currentLevelClicks} / ${clicksUntilNextLevel} next level</p>`
 }
