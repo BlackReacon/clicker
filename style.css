@@ -25,6 +25,8 @@ p, span {
   margin-top: 240px;
   gap: 50px;
   width: 100%;
+  position: absolute;
+  z-index: 999;
 }
 
 #image {
