@@ -10,8 +10,10 @@ body {
   animation-play-state: running;
 }
 
-p {
+p, span {
   margin: 0;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 40px;
 }
 
 /* hero */
