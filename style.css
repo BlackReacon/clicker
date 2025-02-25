@@ -3,6 +3,11 @@ body {
   margin: 0;
   padding: 0;
   width: 100vw;
+  animation-name: colorfade;
+  animation-duration: 120s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
 }
 
 p {
@@ -76,4 +81,14 @@ p {
   100% {
     transform: scale(1.05);
   }
+}
+
+@keyframes colorfade {
+  0.00% { background-color: rgba(238, 130, 238, 0.384); }
+  16.67% { background-color: rgba(255, 166, 0, 0.384); }
+  33.33% { background-color: rgba(255, 255, 0, 0.384); }
+  50.00% { background-color: rgba(0, 128, 0, 0.384);  }
+  66.67% { background-color: rgba(0, 0, 255, 0.384);   }
+  83.33% { background-color: hsla(275, 100%, 25%, 0.384); }
+ 100.00% { background-color: rgba(238, 130, 238, 0.384); }
 }
